@@ -14,24 +14,28 @@
             text-align: left;
         }
         .auto-style4 {
-            height: 159px;
+            height: 388px;
             text-align: center;
         }
         .auto-style5 {
             width: 100%;
-            height: 1154px;
+            height: 756px;
         }
         .auto-style6 {
             text-align: left;
             height: 85px;
         }
         .auto-style7 {
-            height: 159px;
+            height: 388px;
             text-align: center;
             width: 10px;
         }
         .auto-style8 {
             margin-top: 0px;
+        }
+        .auto-style9 {
+            margin-left: 88px;
+            margin-bottom: 42px;
         }
     </style>
 </head>
@@ -49,6 +53,9 @@
                                 <br />
                             </ItemTemplate>
                         </asp:DataList>
+                        <br />
+                        <br />
+                        <asp:LinkButton ID="LinkButton2" runat="server" PostBackUrl="~/addNote.aspx">添加新笔记</asp:LinkButton>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:notebookConnectionString %>" SelectCommand="SELECT * FROM [usernote] WHERE ([username] = @username)">
                             <SelectParameters>
                                 <asp:SessionParameter Name="username" SessionField="username" Type="String" />
@@ -61,16 +68,18 @@
                 </tr>
                 <tr>
                     <td class="auto-style7">
-                        <asp:TextBox ID="txtContent" runat="server" Enabled="False" Height="906px" TextMode="MultiLine" Width="1368px"></asp:TextBox>
+                        <asp:TextBox ID="txtContent" runat="server" Enabled="False" Height="577px" TextMode="MultiLine" Width="763px" CssClass="auto-style9"></asp:TextBox>
                     </td>
                     <td class="auto-style4">
-                        <asp:Image ID="Image1" runat="server" Height="158px" Width="155px" />
+                        <asp:Image ID="Image1" runat="server" Height="256px" Width="250px" />
+                        <asp:FileUpload ID="FileUpload1" runat="server" Visible="False" />
                     </td>
                 </tr>
                 <tr>
                     <td class="auto-style3" colspan="2">
                         <asp:Button ID="Button1" runat="server" Height="34px" OnClick="Button1_Click" Text="修改" Width="84px" />
 &nbsp;
+                        <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="删除" />
                         <asp:Button ID="Button2" runat="server" CssClass="auto-style8" Height="34px" OnClick="Button2_Click" Text="取消" Visible="False" Width="84px" />
                     </td>
                 </tr>
